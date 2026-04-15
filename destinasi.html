@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Destinasi Palangkaraya</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{ box-sizing:border-box; }
+
+body{
+margin:0;
+font-family:'Poppins', sans-serif;
+background: linear-gradient(to bottom, #e8f5e9, #fff9c4);
+}
+
+/* NAVBAR (SAMA) */
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+height:70px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 20px;
+background: linear-gradient(135deg, #56ab2f, #fdd835);
+border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+z-index:1000;
+margin: 0;
+}
+
+.nav-left{
+display:flex;
+align-items:center;
+gap:15px;
+height: 100%;
+}
+
+.logo{
+width:45px;
+height:45px;
+object-fit: cover;
+border-radius: 8px;
+}
+
+.brand-text h1{
+font-family:'Playfair Display';
+font-size:20px;
+font-weight: 700;
+letter-spacing: 2px;
+color: black;
+margin:0;
+}
+
+.brand-text span{
+font-size:12px;
+color: black;
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  line-height: 1.2;
+}
+
+/* MENU */
+.menu{
+  margin: 0;
+  padding: 0;
+  display:flex;
+  list-style:none;
+  gap:15px;
+}
+
+.menu li a{
+  color:#f1f1f1;
+  text-decoration:none;
+  font-size:14px;
+  font-weight: 500;
+}
+
+.menu li a:hover{
+  color:#fffde7;
+}
+
+/* HAMBURGER */
+.hamburger{
+  margin-left: auto;
+  display:none;
+  font-size:24px;
+  color:white;
+  cursor:pointer;
+  
+  position: relative;
+  z-index:1100;
+}
+
+@media (max-width:768px){
+
+.menu{
+  position:absolute;
+  top:70px;
+  left: 0;
+  right:0;
+  width:100%;
+  flex-direction:column;
+  align-items:center;
+  display:none;
+  background:rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  
+  z-index:1000;
+}
+
+.menu {
+  border-top: none;
+}
+
+.menu.active{
+  display:flex;
+}
+
+.menu li{
+  padding:15px 0;
+}
+
+.hamburger{
+  display:block;
+}
+
+}
+
+/* SECTION */
+.section{
+padding:80px 20px 40px;
+text-align:center;
+}
+
+/* ======================= */
+/* PETA INTERAKTIF */
+/* ======================= */
+
+.map{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+margin-top:20px;
+}
+
+.map div{
+padding:15px 20px;
+border-radius:10px;
+background:#ffffffcc;
+cursor:pointer;
+transition:0.3s;
+}
+
+.map div:hover{
+background:#c5e1a5;
+}
+
+/* ======================= */
+/* KATEGORI */
+/* ======================= */
+
+.categories{
+margin-top:40px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+}
+
+.cat{
+width:260px;
+background:rgba(255,255,255,0.9);
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,0.2);
+overflow:hidden;
+cursor:pointer;
+transition:0.3s;
+}
+
+.cat img{
+width:100%;
+height:150px;
+object-fit:cover;
+}
+
+.cat h3{
+padding:10px;
+color:#2e7d32;
+}
+
+.cat p{
+padding:0 10px 15px;
+font-size:14px;
+}
+
+.cat:hover{
+transform: translateY(-8px);
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* INFO */
+.info{
+margin-top:30px;
+background:white;
+padding:20px;
+border-radius:10px;
+display:none;
+}
+
+/* QUICK FACT */
+.facts{
+margin-top:40px;
+background:linear-gradient(to right, #fffde7, #e8f5e9);
+padding:20px;
+border-radius:10px;
+}
+
+/* FOOTER */
+footer{
+margin-top:40px;
+background: linear-gradient(135deg, #56ab2f, #fdd835);
+text-align:center;
+padding:15px;
+color:black;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-left">
+    <img src="1bb4e13af45cc5c480069da8670508c5.ico_.png" class="logo">
+    <div class="brand-text">
+      <h1>PALANGKARAYA</h1>
+      <span>Budaya Suku Dayak</span>
+    </div>
+  </div>
+
+  <!-- MENU -->
+  <ul class="menu" id="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="destinasi.html">Destinasi</a></li>
+    <li><a href="activities and experiences.html">Activities and experiences</a></li>
+    <li><a href="culture.html">Culture</a></li>
+     <li><a href="culinary.html">Culinary</a></li>
+    <li><a href="plan.html">Plan</a></li>
+    <li><a href="itinerary.html">Itinerary</a></li>
+    <li><a href="akomodasi.html">Akomodasi</a></li>
+    <li><a href="konversi.html">Konversi</a></li>
+    <li><a href="support.html">Support</a></li>
+    <li><a href="booking.html">Booking</a></li>
+  </ul>
+
+  <!-- HAMBURGER -->
+  <div class="hamburger" onclick="toggleMenu()">
+    ☰
+  </div>
+</nav>
+
+<section class="section">
+
+<h2>Destinasi Wilayah Palangkaraya</h2>
+<p>Pilih wilayah di bawah untuk eksplorasi</p>
+
+<!-- ======================= -->
+<!-- PETA INTERAKTIF -->
+<!-- ======================= -->
+<div class="map">
+<div onclick="document.getElementById('utara').scrollIntoView({behavior:'smooth'})">
+Utara (Tropical Nature)
+</div>
+
+<div onclick="document.getElementById('tengah').scrollIntoView({behavior:'smooth'})">
+Tengah (Modern City)
+</div>
+
+<div onclick="document.getElementById('selatan').scrollIntoView({behavior:'smooth'})">
+  Selatan (River Area)
+</div>
+</div>
+
+<!-- ======================= -->
+<!-- KATEGORI WILAYAH -->
+<!-- ======================= -->
+<div class="categories">
+
+<div id="utara" class="cat" onclick="location.href='utara.html'">
+<img src="1-Papan-nama-Punggualas-salah-satu-resort-di-Taman-Nasional-Sebangau.-Foto-Arief-Priyono-Hutan-Hijau.jpg">
+<h3>Wilayah Utara</h3>
+<p>Hutan tropis alami dan petualangan seru.</p>
+</div>
+
+<div id="tengah" class="cat" onclick="location.href='tengah.html'">
+<img src="bundaran-besar.jpg">
+<h3>Wilayah Tengah</h3>
+<p>Pusat kota modern dan kuliner.</p>
+</div>
+
+<div id="selatan" class="cat" onclick="location.href='selatan.html'">
+<img src="cmmc2iqwfu7geje.jpeg">
+<h3>Wilayah Selatan</h3>
+<p>Wisata sungai dan pemandangan santai.</p>
+</div>
+
+</div>
+
+<!-- ======================= -->
+<!-- QUICK FACT -->
+<!-- ======================= -->
+<div class="facts">
+<h3>Quick Facts</h3>
+<p>Jarak antar wilayah: ±5 - 15 km</p>
+<p>Waktu tempuh darat: 10 - 30 menit</p>
+<p>Bandara ke pusat kota: ±15 menit</p>
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Wisata Palangkaraya</p>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

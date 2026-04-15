@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Your Trip</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{ box-sizing:border-box; }
+
+body{
+margin:0;
+font-family:'Poppins', sans-serif;
+background: linear-gradient(to bottom, #e8f5e9, #fff9c4);
+}
+
+/* NAVBAR */
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+height:70px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 20px;
+background: linear-gradient(135deg, #56ab2f, #fdd835);
+z-index:1000;
+}
+
+.nav-left{
+display:flex;
+align-items:center;
+gap:15px;
+height:100%;
+}
+
+.brand-text{
+display:flex;
+flex-direction:column;
+justify-content:center;
+line-height:1.2;
+}
+
+.logo{
+width:45px;
+height:45px;
+border-radius:8px;
+}
+
+.brand-text h1{
+font-family:'Playfair Display';
+font-size:20px;
+margin:0;
+}
+
+.brand-text span{
+font-size:12px;
+}
+
+/* MENU */
+.menu{
+display:flex;
+list-style:none;
+gap:15px;
+margin:0;
+padding:0;
+}
+
+.menu li a{
+color:white;
+text-decoration:none;
+font-size:14px;
+}
+
+/* HAMBURGER */
+.hamburger{
+margin-left:auto;
+display:none;
+font-size:24px;
+color:white;
+cursor:pointer;
+}
+
+@media (max-width:768px){
+.menu{
+position:absolute;
+top:70px;
+left:0;
+right:0;
+width:100%;
+flex-direction:column;
+align-items:center;
+display:none;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+}
+
+.menu.active{
+display:flex;
+}
+
+.menu li{
+padding:15px 0;
+}
+
+.hamburger{
+display:block;
+}
+}
+
+/* SECTION */
+.section{
+padding:90px 20px 40px;
+max-width:1100px;
+margin:auto;
+text-align:center;
+}
+
+/* CARD */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.9);
+backdrop-filter:blur(10px);
+padding:20px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,0.15);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* SELECT STYLE */
+select{
+padding:12px 16px;
+border-radius:10px;
+border:none;
+background:white;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+font-family:'Poppins', sans-serif;
+font-size:14px;
+outline:none;
+cursor:pointer;
+margin-top:10px;
+}
+
+#visaStatus{
+margin-top:15px;
+font-weight:500;
+color:#2e7d32;
+}
+
+/* CONVERTER */
+.converter{
+margin-top:20px;
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+.converter input, .converter select{
+padding:10px;
+margin:5px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+.converter button{
+padding:10px 15px;
+border:none;
+border-radius:10px;
+background:#56ab2f;
+color:white;
+cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+margin-top:40px;
+background: linear-gradient(135deg, #56ab2f, #fdd835);
+text-align:center;
+padding:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="nav-left">
+<img src="1bb4e13af45cc5c480069da8670508c5.ico_.png" class="logo">
+<div class="brand-text">
+<h1>PALANGKARAYA</h1>
+<span>Budaya Suku Dayak</span>
+</div>
+</div>
+
+<ul class="menu" id="menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="regions.html">Regions</a></li>
+<li><a href="activities and experiences.html">Activities</a></li>
+<li><a href="culinary.html">Culinary</a></li>
+<li><a href="culture.html">Culture</a></li>
+<li><a href="plan.html">Plan</a></li>
+<li><a href="itinerary.html">Itinerary</a></li>
+<li><a href="akomodasi.html">Akomodasi</a></li>
+<li><a href="konversi.html">Konversi</a></li>
+<li><a href="support.html">Support</a></li>
+<li><a href="booking.html">Booking</a></li>
+</ul>
+
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+</nav>
+
+<!-- VISA -->
+<section class="section">
+<h2>Syarat Visa</h2>
+<p>Pilih kewarganegaraan Anda</p>
+
+<select onchange="checkVisa(this.value)">
+<option value="Indonesia">Indonesia</option>
+<option value="Malaysia">Malaysia</option>
+<option value="Singapore">Singapore</option>
+<option value="USA">USA</option>
+</select>
+
+<p id="visaStatus">Status visa akan ditampilkan di sini</p>
+</section>
+
+<!-- TRANSPORT -->
+<section class="section">
+<h2>Transportasi</h2>
+
+<select id="budgetFilter" onchange="filterBudget()">
+<option value="all">Semua Budget</option>
+<option value="low">Hemat</option>
+<option value="mid">Menengah</option>
+<option value="high">Premium</option>
+</select>
+
+<div class="grid">
+<div class="card" data-budget="low">
+<h3>Transportasi Umum</h3>
+<p>Angkutan kota dan ojek online tersedia.</p>
+</div>
+
+<div class="card" data-budget="mid">
+<h3>Sewa Kendaraan</h3>
+<p>Mobil dan motor mudah disewa.</p>
+</div>
+
+<div class="card" data-budget="high">
+<h3>Transportasi Premium</h3>
+<p>Layanan travel dan mobil pribadi.</p>
+</div>
+</div>
+</section>
+
+<!-- CURRENCY -->
+<section class="section">
+<h2>Currency Converter</h2>
+
+<div class="converter">
+<input type="number" id="amount" placeholder="Jumlah">
+
+<select id="from">
+<option value="idr">IDR</option>
+<option value="usd">USD</option>
+<option value="myr">MYR</option>
+</select>
+
+<select id="to">
+<option value="usd">USD</option>
+<option value="idr">IDR</option>
+<option value="myr">MYR</option>
+</select>
+
+<button onclick="convert()">Convert</button>
+
+<p id="result"></p>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Wisata Palangkaraya</p>
+</footer>
+
+<script>
+
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("active");
+}
+
+function checkVisa(country){
+let status = document.getElementById("visaStatus");
+
+if(country === "Indonesia"){
+status.innerHTML = "Bebas visa untuk perjalanan domestik";
+}
+else if(country === "Malaysia"){
+status.innerHTML = "Bebas visa 30 hari";
+}
+else if(country === "Singapore"){
+status.innerHTML = "Bebas visa 30 hari";
+}
+else if(country === "USA"){
+status.innerHTML = "Memerlukan visa kunjungan";
+}
+else{
+status.innerHTML = "Silakan cek informasi resmi";
+}
+}
+
+function filterBudget(){
+let filter = document.getElementById("budgetFilter").value;
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+let budget = card.getAttribute("data-budget");
+
+if(filter==="all" || budget===filter){
+card.style.display="block";
+}else{
+card.style.display="none";
+}
+});
+}
+
+function convert(){
+let amount = document.getElementById("amount").value;
+let from = document.getElementById("from").value;
+let to = document.getElementById("to").value;
+
+let rates = {
+idr:1,
+usd:15000,
+myr:3500
+};
+
+let result = (amount * rates[to]) / rates[from];
+
+document.getElementById("result").innerHTML = "Hasil: " + result.toFixed(2);
+}
+
+</script>
+
+</body>
+</html>

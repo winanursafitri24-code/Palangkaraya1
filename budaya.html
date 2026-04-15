@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Budaya Palangkaraya</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* GLOBAL */
+*{ box-sizing:border-box; }
+
+body{
+margin:0;
+font-family:'Poppins', sans-serif;
+background: linear-gradient(to bottom, #e8f5e9, #fff9c4);
+}
+
+/* NAVBAR (SAMA DENGAN REGIONS) */
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+height:70px;
+display:flex;
+align-items:center;
+padding:0 20px;
+background: linear-gradient(135deg, #56ab2f, #fdd835);
+z-index:1000;
+position:relative;
+}
+
+.nav-left{
+display:flex;
+align-items:center;
+gap:15px;
+height:100%;
+}
+
+.logo{
+width:45px;
+height:45px;
+border-radius:8px;
+}
+
+.brand-text{
+display:flex;
+flex-direction:column;
+justify-content:center;
+line-height:1.2;
+}
+
+.brand-text h1{
+font-family:'Playfair Display';
+margin:0;
+font-size:20px;
+}
+
+.brand-text span{
+font-size:12px;
+}
+
+/* MENU */
+.menu{
+display:flex;
+list-style:none;
+gap:15px;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+font-size:14px;
+}
+
+/* HAMBURGER */
+.hamburger{
+display:none;
+font-size:24px;
+color:white;
+cursor:pointer;
+position:absolute;
+right:20px;
+z-index:1100;
+}
+
+/* RESPONSIVE (SAMA PERSIS REGIONS) */
+@media (max-width:768px){
+
+.menu{
+  position:absolute;
+  top:70px;
+  left:0;
+  right:0;
+  width:100%;
+  flex-direction:column;
+  align-items:center;
+  display:none;
+  background:rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  z-index:999;
+}
+
+.menu.active{
+  display:flex;
+}
+
+.menu li{
+  padding:15px 0;
+}
+
+.hamburger{
+  display:block;
+}
+
+}
+
+/* SECTION */
+.section{
+padding:90px 20px 40px;
+max-width:1000px;
+margin:auto;
+}
+
+.section h2{
+font-family:'Playfair Display';
+margin-bottom:20px;
+}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,0.95);
+padding:20px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+margin-bottom:20px;
+}
+
+/* LIST */
+.list{
+padding-left:20px;
+}
+
+.list li{
+margin-bottom:8px;
+}
+
+/* FOOTER */
+footer{
+margin-top:40px;
+background: linear-gradient(135deg, #56ab2f, #fdd835);
+text-align:center;
+padding:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+<div class="nav-left">
+<img src="1bb4e13af45cc5c480069da8670508c5.ico_.png" class="logo">
+<div class="brand-text">
+<h1>PALANGKARAYA</h1>
+<span>Budaya Suku Dayak</span>
+</div>
+</div>
+
+<ul class="menu" id="menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="destinasi.html">Destinasi</a></li>
+<li><a href="activities and experiences.html">Activities and experiences</a></li>
+<li><a href="culture.html">Culture</a></li>
+<li><a href="culinary.html">Culinary</a></li>
+<li><a href="plan.html">Plan</a></li>
+<li><a href="itinerary.html">Itinerary</a></li>
+<li><a href="akomodasi.html">Akomodasi</a></li>
+<li><a href="konversi.html">Konversi</a></li>
+<li><a href="support.html">Support</a></li>
+<li><a href="booking.html">Booking</a></li>
+</ul>
+
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+</nav>
+
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+</script>
+
+<!-- CONTENT -->
+<section class="section">
+
+<h2>Budaya dan Warisan</h2>
+
+<div class="card">
+<h3>Fungsi</h3>
+<p>Membangun koneksi emosional melalui sejarah dan tradisi masyarakat lokal.</p>
+</div>
+
+<div class="card">
+<h3>Sejarah Singkat</h3>
+<p>Palangkaraya memiliki akar budaya yang kuat dari suku Dayak, yang dikenal dengan kehidupan harmonis bersama alam serta nilai-nilai tradisional yang dijaga turun-temurun.</p>
+</div>
+
+<div class="card">
+<h3>Warisan Dunia</h3>
+<ul class="list">
+<li>Taman Nasional Sebangau sebagai kawasan ekosistem penting</li>
+<li>Budaya Dayak dengan seni ukir dan rumah adat</li>
+<li>Tradisi lisan dan upacara adat yang masih dilestarikan</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Etika Lokal</h3>
+<ul class="list">
+<li>Gunakan pakaian sopan saat mengunjungi tempat adat</li>
+<li>Hormati tradisi dan kebiasaan masyarakat setempat</li>
+<li>Gunakan bahasa yang santun saat berinteraksi</li>
+<li>Ikuti aturan yang berlaku di tempat sakral</li>
+</ul>
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Wisata Palangkaraya</p>
+</footer>
+
+</body>
+</html>

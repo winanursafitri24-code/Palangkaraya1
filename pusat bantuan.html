@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help & Support</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+*{ box-sizing:border-box; }
+
+body{
+margin:0;
+font-family:'Poppins', sans-serif;
+background: linear-gradient(to bottom, #e8f5e9, #fff9c4);
+
+min-height:100vh;
+display:flex;
+flex-direction:column;
+}
+
+/* NAVBAR */
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+height:70px;
+display:flex;
+align-items:center;
+padding:0 20px;
+background: linear-gradient(135deg, #56ab2f, #fdd835);
+z-index:1000;
+}
+
+.nav-left{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo{
+width:45px;
+height:45px;
+border-radius:8px;
+}
+
+.brand-text h1{
+margin:0;
+font-family:'Playfair Display';
+font-size:20px;
+}
+
+.brand-text span{
+font-size:12px;
+}
+
+/* MENU */
+.menu{
+margin-left:auto;
+display:flex;
+list-style:none;
+gap:15px;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+font-size:14px;
+}
+
+/* HAMBURGER */
+.hamburger{
+display:none;
+font-size:24px;
+color:white;
+cursor:pointer;
+margin-left:auto;
+}
+
+@media (max-width:768px){
+.menu{
+position:absolute;
+top:70px;
+left:0;
+right:0;
+flex-direction:column;
+align-items:center;
+display:none;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+}
+
+.menu.active{
+display:flex;
+}
+
+.menu li{
+padding:15px 0;
+}
+
+.hamburger{
+display:block;
+}
+}
+
+/* SECTION */
+.section{
+padding:90px 20px 40px;
+max-width:900px;
+margin:auto;
+flex:1;
+}
+
+/* CARD */
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+margin-bottom:20px;
+}
+
+/* CHAT BUTTON */
+.chat-toggle{
+position:fixed;
+bottom:20px;
+right:20px;
+background:linear-gradient(135deg,#56ab2f,#fdd835);
+color:white;
+border:none;
+border-radius:50%;
+width:60px;
+height:60px;
+font-size:24px;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* CHAT BOX PREMIUM */
+.chatbox{
+position:fixed;
+bottom:90px;
+right:20px;
+width:320px;
+background:white;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+display:none;
+flex-direction:column;
+overflow:hidden;
+}
+
+.chat-header{
+background:linear-gradient(135deg,#56ab2f,#fdd835);
+padding:15px;
+font-weight:500;
+}
+
+.chat-messages{
+padding:15px;
+height:260px;
+overflow-y:auto;
+font-size:14px;
+}
+
+.chat-input{
+display:flex;
+border-top:1px solid #ddd;
+}
+
+.chat-input input{
+flex:1;
+border:none;
+padding:10px;
+outline:none;
+}
+
+.chat-input button{
+background:#56ab2f;
+color:white;
+border:none;
+padding:10px 15px;
+cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+margin-top:40px;
+background: linear-gradient(135deg, #56ab2f, #fdd835);
+text-align:center;
+padding:15px;
+margin-bottom:70px;
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="nav-left">
+<img src="1bb4e13af45cc5c480069da8670508c5.ico_.png" class="logo">
+<div class="brand-text">
+<h1>PALANGKARAYA</h1>
+<span>Budaya Suku Dayak</span>
+</div>
+</div>
+
+<ul class="menu" id="menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="destinasi.html">Destinasi</a></li>
+<li><a href="aktivitas.html">Aktivitas</a></li>
+<li><a href="budaya.html">Budaya</a></li>
+<li><a href="kuliner.html">Kuliner</a></li>
+<li><a href="rencana perjalanan.html">Rencana perjalanan</a></li>
+<li><a href="itinerari.html">Itinerari</a></li>
+<li><a href="akomodasi.html">Akomodasi</a></li>
+<li><a href="konservasi.html">Konservasi</a></li>
+<li><a href="pusat bantuan.html">Pusat bantuan</a></li>
+<li><a href="pemesanan.html">Pemesanan</a></li>
+</ul>
+
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+</nav>
+
+<section class="section">
+
+<div class="card">
+<h3>Nomor darurat</h3>
+<p>Polisi: 110</p>
+<p>Ambulans: 118</p>
+<p>Bandara: +62 536 3221245</p>
+</div>
+
+<div class="card">
+<h3>FAQ</h3>
+<p>Aman untuk wisata? Ya, relatif aman.</p>
+<p>Air minum? Disarankan air kemasan.</p>
+<p>Cuaca? Tropis dan lembap.</p>
+</div>
+
+</section>
+
+<!-- CHATBOT -->
+<button class="chat-toggle" onclick="toggleChat()">💬</button>
+
+<div class="chatbox" id="chatbox">
+<div class="chat-header">Travel Assistant AI</div>
+
+<div class="chat-messages" id="messages">
+<div>Halo, saya asisten wisata Palangkaraya. Ada yang bisa saya bantu?</div>
+</div>
+
+<div class="chat-input">
+<input type="text" id="userInput" placeholder="Tanya apa saja...">
+<button onclick="sendMessage()">Kirim</button>
+</div>
+</div>
+
+<footer>
+<p>© 2026 Wisata Palangkaraya</p>
+</footer>
+
+<script>
+
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("active");
+}
+
+function toggleChat(){
+let chat = document.getElementById("chatbox");
+chat.style.display = chat.style.display === "flex" ? "none" : "flex";
+}
+
+/* AI RESPONSE */
+function getAIResponse(input){
+input = input.toLowerCase();
+
+if(input.includes("halo") || input.includes("hai")){
+return "Halo! Saya siap membantu perjalanan Anda di Palangkaraya.";
+}
+
+if(input.includes("hotel")){
+return "Anda bisa mencoba Swiss-Belhotel Danum atau hotel lokal di pusat kota.";
+}
+
+if(input.includes("wisata")){
+return "Wisata populer termasuk Sungai Kahayan dan Taman Nasional Sebangau.";
+}
+
+if(input.includes("transport")){
+return "Transportasi tersedia seperti ojek online, sewa mobil, dan travel lokal.";
+}
+
+if(input.includes("makan") || input.includes("kuliner")){
+return "Kuliner khas seperti ikan bakar dan makanan Dayak sangat direkomendasikan.";
+}
+
+if(input.includes("harga") || input.includes("budget")){
+return "Biaya wisata cukup terjangkau, tergantung pilihan transportasi dan hotel.";
+}
+
+if(input.includes("terima kasih")){
+return "Sama-sama, semoga perjalanan Anda menyenangkan.";
+}
+
+/* fallback pintar */
+return "Saya mengerti pertanyaan Anda. Untuk informasi lebih detail, Anda bisa menjelajahi menu di website ini atau bertanya lebih spesifik.";
+}
+
+/* SEND MESSAGE */
+function sendMessage(){
+let input = document.getElementById("userInput");
+let msg = input.value;
+
+if(msg.trim() === "") return;
+
+let messages = document.getElementById("messages");
+
+messages.innerHTML += "<div><b>Anda:</b> "+msg+"</div>";
+
+let reply = getAIResponse(msg);
+
+setTimeout(()=>{
+messages.innerHTML += "<div><b>AI:</b> "+reply+"</div>";
+messages.scrollTop = messages.scrollHeight;
+},500);
+
+input.value="";
+}
+
+</script>
+
+</body>
+</html>
